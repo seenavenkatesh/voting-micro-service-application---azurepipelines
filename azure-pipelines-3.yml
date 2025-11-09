@@ -35,6 +35,12 @@ stages:
         chmod +x ~/.docker/cli-plugins/docker-buildx
       displayName: Install Buildx Plugin
 
+    - script: |
+        echo "🔥 Enabling Docker Buildx..."
+        docker buildx create --use
+        docker buildx inspect --bootstrap
+      displayName: Enable Buildx
+
 
     - task: Docker@2
       displayName: Build and push an image to container registry
