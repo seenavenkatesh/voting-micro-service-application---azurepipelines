@@ -11,17 +11,17 @@ variables:
   # Microservices Information
   service1Name: 'result'
   service1Dockerfile: 'result/Dockerfile'
-  service1Deployment: 'result'
+  service1Deployment: 'k8s-manifest-files/result'
   service1Container: 'result'
 
   service2Name: 'vote'
   service2Dockerfile: 'vote/Dockerfile'
-  service2Deployment: 'vote'
+  service2Deployment: 'k8s-manifest-filesvote'
   service2Container: 'vote'
 
   service3Name: 'worker'
   service3Dockerfile: 'worker/Dockerfile'
-  service3Deployment: 'worker'
+  service3Deployment: k8s-manifest-files'worker'
   service3Container: 'worker'
 
   tag: '$(Build.BuildId)'
