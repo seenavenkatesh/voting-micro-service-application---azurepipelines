@@ -77,7 +77,18 @@ stages:
   - job: Deploy
     displayName: Deploy All Microservices to AKS
     steps:
-
+    - task: Bash@3
+      displayName: Install Azure CLI if not present
+      inputs:
+        targetType: inline
+        script: |
+          if ! command -v az &> /dev/null
+          then
+            echo "Azure CLI not found. Installing..."
+            curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+          else
+            echo "Azure CLI already installed."
+          fi
     - task: AzureCLI@2
       displayName: Login to AKS and Deploy
       inputs:
