@@ -1,5 +1,7 @@
 trigger:
-- master
+ paths:
+  include:
+  - result/*
 
 resources:
 - repo: self
