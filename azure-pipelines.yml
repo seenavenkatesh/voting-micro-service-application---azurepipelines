@@ -12,8 +12,7 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
   tag: '$(Build.BuildId)'
 
-  # Agent VM image name
-  vmImageName: 'agent-vm'
+
 
 pool:
  name: 'azurepool'
