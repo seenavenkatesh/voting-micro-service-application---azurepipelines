@@ -16,7 +16,7 @@ variables:
   vmImageName: 'ubuntu-latest'
 
 pool:
- name: 'agent-vm'
+ name: 'azurepool'
 
 stages:
 - stage: Build
