@@ -1,24 +1,23 @@
 trigger:
 - master
 
-
-
 variables:
-  acrServiceConnection: '7e0f26b8-7f0c-4622-80f8-783dfa9d2f96'     # Docker Registry service connection
-  azureRMConnection: 'azure-service'           # Azure Resource Manager service connection
+  acrServiceConnection: '7e0f26b8-7f0c-4622-80f8-783dfa9d2f96'     # Docker Registry Service Connection
+  azureRMConnection: 'azure-service'                               # Azure Resource Manager Service Connection
 
   acrName: 'votingapp.azurecr.io'
   tag: '$(Build.BuildId)'
 
-  # Microservice folders
   resultPath: 'result'
   votePath: 'vote'
   workerPath: 'worker'
 
   aksCluster: 'aks-azure-pipeline'
   aksResourceGroup: 'demo-app'
+
 pool:
   name: 'azurepool'
+
 stages:
 
 # ------------------------------------------------------
@@ -66,6 +65,20 @@ stages:
   - job: DeployToAKS
     displayName: Deploy All Services to AKS
     steps:
+    # Install kubectl (only if not present)
+    - task: Bash@3
+      displayName: Install kubectl if missing
+      inputs:
+        targetType: inline
+        script: |
+          if ! command -v kubectl &> /dev/null
+          then
+            echo "kubectl not found. Installing..."
+            sudo az aks install-cli
+          else
+            echo "kubectl already installed."
+          fi
+
     - task: AzureCLI@2
       displayName: Deploy to AKS
       inputs:
@@ -76,19 +89,5 @@ stages:
           echo "🔹 Connecting to AKS"
           az aks get-credentials --resource-group $(aksResourceGroup) --name $(aksCluster) --overwrite-existing
 
-          echo "📌 Applying manifests"
-          kubectl apply -f k8s-manifests/result
-          kubectl apply -f k8s-manifests/vote
-          kubectl apply -f k8s-manifests/worker
-
-          echo "🚀 Updating deployments with new image"
-          kubectl set image deployment/result result=$(acrName)/result:$(tag)
-          kubectl set image deployment/vote vote=$(acrName)/vote:$(tag)
-          kubectl set image deployment/worker worker=$(acrName)/worker:$(tag)
-
-          echo "⏳ Waiting for rollout"
-          kubectl rollout status deployment/result
-          kubectl rollout status deployment/vote
-          kubectl rollout status deployment/worker
-
-          echo "✅ Deployment Completed Successfully!"
+          echo "📌 Applying Kubernetes Manifests"
+          kubectl apply -f k8s-manifests/
