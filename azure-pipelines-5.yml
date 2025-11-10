@@ -5,7 +5,7 @@ resources:
 - repo: self
 
 variables:
-  dockerRegistryServiceConnection: 'd6d7b5a8-de61-4070-8388-72ff6ae21253'
+  dockerRegistryServiceConnection: '7e0f26b8-7f0c-4622-80f8-783dfa9d2f96'
   containerRegistry: 'votingapp.azurecr.io'
 
   # Microservices Information
@@ -26,7 +26,7 @@ variables:
 
   tag: '$(Build.BuildId)'
 
-  aksCluster: 'aks-cluster-azurepipeline'
+  aksCluster: 'aks-azure-pipeline'
   aksResourceGroup: 'demo-app'
 
 pool:
