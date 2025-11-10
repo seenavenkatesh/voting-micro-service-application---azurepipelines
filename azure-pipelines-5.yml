@@ -89,6 +89,15 @@ stages:
           else
             echo "Azure CLI already installed."
           fi
+
+    - task: Bash@3
+      displayName: Install kubectl
+      inputs:
+        targetType: inline
+        script: |
+          echo "📦 Installing kubectl..."
+          sudo az aks install-cli
+          kubectl version --client
     - task: AzureCLI@2
       displayName: Login to AKS and Deploy
       inputs:
