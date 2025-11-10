@@ -5,7 +5,7 @@ trigger:
 
 variables:
   acrServiceConnection: '7e0f26b8-7f0c-4622-80f8-783dfa9d2f96'     # Docker Registry service connection
-  azureRMConnection: 'azure-rm-connection'           # Azure Resource Manager service connection
+  azureRMConnection: 'azure-service'           # Azure Resource Manager service connection
 
   acrName: 'votingapp.azurecr.io'
   tag: '$(Build.BuildId)'
