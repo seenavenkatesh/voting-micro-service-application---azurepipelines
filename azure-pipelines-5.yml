@@ -90,4 +90,4 @@ stages:
           az aks get-credentials --resource-group $(aksResourceGroup) --name $(aksCluster) --overwrite-existing
 
           echo "📌 Applying Kubernetes Manifests"
-          kubectl apply -f k8s-manifest-files/result/result-deployment.yaml
+          kubectl apply -f k8s-manifest-files/
