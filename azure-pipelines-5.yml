@@ -16,7 +16,7 @@ variables:
 
   service2Name: 'vote'
   service2Dockerfile: 'vote/Dockerfile'
-  service2Deployment: 'k8s-manifest-files/vote/*'
+  service2Deployment: 'vote'
   service2Container: 'vote'
 
   service3Name: 'worker'
