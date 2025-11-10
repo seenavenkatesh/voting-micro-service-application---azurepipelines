@@ -16,12 +16,12 @@ variables:
 
   service2Name: 'vote'
   service2Dockerfile: 'vote/Dockerfile'
-  service2Deployment: 'k8s-manifest-filesvote'
+  service2Deployment: 'k8s-manifest-files/vote/*'
   service2Container: 'vote'
 
   service3Name: 'worker'
   service3Dockerfile: 'worker/Dockerfile'
-  service3Deployment: k8s-manifest-files/'worker/*'
+  service3Deployment: 'k8s-manifest-files/worker/*'
   service3Container: 'worker'
 
   tag: '$(Build.BuildId)'
