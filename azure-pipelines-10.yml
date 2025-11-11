@@ -18,6 +18,10 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/worker/Dockerfile'
   tag: '$(Build.BuildId)'
 
+pool:
+ name: 'azurepool'
+
+
 stages:
 - stage: Build
   displayName: Build stage
