@@ -70,5 +70,8 @@ stages:
         connectionType: 'kubernetesServiceConnection'
         kubernetesServiceConnection: '$(kubernetesServiceConnection)'
         namespace: '$(namespace)'
-        manifests: 'k8s-manifest-files'
+        manifests:  |
+           k8s-manifest-files/result-deployment.yaml
+           k8s-manifest-files/result-service.yaml
+
         containers: '$(containerRegistry)/$(imageRepository):$(tag)'
