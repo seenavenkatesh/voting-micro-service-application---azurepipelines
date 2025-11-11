@@ -17,6 +17,8 @@ variables:
   containerRegistry: 'votingapp2025.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
   tag: '$(Build.BuildId)'
+  kubernetesServiceConnection: 'k8s cluster'
+  namespace: 'dev'
 
 pool:
  name: 'azurepool'
@@ -53,3 +55,20 @@ stages:
         repository: '$(imageRepository)'
         command: 'push'
         tags: '$(tag)'
+
+- stage: Deploy
+  displayName: Deploy to AKS
+  dependsOn: Push
+  jobs:
+  - job: Deploy
+    displayName: Deploy to AKS
+    steps:
+    - task: KubernetesManifest@1
+      displayName: Deploy to AKS
+      inputs:
+        action: 'deploy'
+        connectionType: 'kubernetesServiceConnection'
+        kubernetesServiceConnection: '$(kubernetesServiceConnection)'
+        namespace: '$(namespace)'
+        manifests: 'k8s-manifest-files/'
+        containers: '$(containerRegistry)/$(imageRepository):$(tag)'
