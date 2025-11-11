@@ -18,7 +18,7 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
   tag: '$(Build.BuildId)'
   kubernetesServiceConnection: 'k8s cluster'
-  namespace: 'dev'
+  namespace: 'default'
 
 pool:
  name: 'azurepool'
