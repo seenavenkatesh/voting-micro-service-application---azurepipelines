@@ -15,5 +15,5 @@ spec:
         app: worker
     spec:
       containers:
-      - image: docker pull votingapp2025.azurecr.io/worker:126
+      - image: votingapp2025.azurecr.io/worker:126
         name: worker
