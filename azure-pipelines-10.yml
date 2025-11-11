@@ -19,8 +19,7 @@ variables:
   tag: '$(Build.BuildId)'
 
 pool:
- name: 'azurepool'
-
+  name: 'azurepool'
 
 stages:
 - stage: Build
