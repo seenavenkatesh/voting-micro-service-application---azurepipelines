@@ -4,8 +4,8 @@
 
 trigger:
  paths:
-   include:
-     - vote/*
+  include:
+    - 'vote/*'
 resources:
 - repo: self
 
