@@ -1,6 +1,9 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: db
   name: db
 spec:
   replicas: 1
@@ -12,29 +15,20 @@ spec:
       labels:
         app: db
     spec:
-      serviceAccountName: csi-secrets-sa
       containers:
-      - name: postgres
-        image: postgres:15-alpine
+      - image: postgres:15-alpine
+        name: postgres
         env:
         - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              name: db-secrets
-              key: POSTGRES-USER
+          value: postgres
         - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-secrets
-              key: POSTGRES-PASSWORD
+          value: postgres
+        ports:
+        - containerPort: 5432
+          name: postgres
         volumeMounts:
-        - name: secrets-store-inline
-          mountPath: "/mnt/secrets-store"
-          readOnly: true
+        - mountPath: /var/lib/postgresql/data
+          name: db-data
       volumes:
-      - name: secrets-store-inline
-        csi:
-          driver: secrets-store.csi.k8s.io
-          readOnly: true
-          volumeAttributes:
-            secretProviderClass: "azure-kv-secrets"
+      - name: db-data
+        emptyDir: {} 
