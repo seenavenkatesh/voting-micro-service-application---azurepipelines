@@ -1,0 +1,40 @@
+# pipeline for infrastructure (Redis, Postgres),
+
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - 'k8s-manifest-files/postgress-*'
+      - 'k8s-manifest-files/redis-*'
+
+resources:
+- repo: self
+
+variables:
+  kubernetesServiceConnection: 'aks-cluster'
+  namespace: 'dev'
+
+pool:
+  name: 'azurepool'
+
+stages:
+- stage: DeployInfra
+  displayName: Deploy Infrastructure (Postgres & Redis)
+  jobs:
+  - job: Deploy
+    displayName: Deploy DB and Cache to AKS
+    steps:
+    - task: KubernetesManifest@1
+      displayName: Deploy Postgres & Redis to AKS
+      inputs:
+        action: 'deploy'
+        connectionType: 'kubernetesServiceConnection'
+        kubernetesServiceConnection: '$(kubernetesServiceConnection)'
+        namespace: '$(namespace)'
+        manifests: |
+          k8s-manifest-files/postgress-db-deployment.yaml
+          k8s-manifest-files/postgress-db.service.yaml
+          k8s-manifest-files/redis-deployment.yaml
+          k8s-manifest-files/redis-service.yaml
