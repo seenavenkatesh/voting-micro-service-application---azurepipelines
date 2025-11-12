@@ -15,14 +15,15 @@ spec:
         app: redis
     spec:
       containers:
-      - image: redis:alpine
-        name: redis
+      - name: redis
+        image: redis:alpine
         ports:
         - containerPort: 6379
           name: redis
         volumeMounts:
-        - mountPath: /data
-          name: redis-data
+        - name: redis-data
+          mountPath: /data
       volumes:
       - name: redis-data
-        emptyDir: {} 
+        persistentVolumeClaim:
+          claimName: redis-pvc
