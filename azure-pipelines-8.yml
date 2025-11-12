@@ -17,7 +17,7 @@ variables:
   containerRegistry: 'votingapp2025.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
   tag: '$(Build.BuildId)'
-  kubernetesServiceConnection: 'k8s cluster'
+  kubernetesServiceConnection: 'cluster-connection'
   namespace: 'default'
 
 pool:
