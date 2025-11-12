@@ -15,7 +15,7 @@ spec:
         app: result
     spec:
       containers:
-      - image: votereg6360.azurecr.io/result:latest
+      - image: votereg6360.azurecr.io/result:142
         name: result
         ports:
         - containerPort: 80
