@@ -14,12 +14,16 @@ spec:
       labels:
         app: db
     spec:
+      serviceAccountName: default
+      securityContext:
+        runAsUser: 999
+        runAsGroup: 999
+        fsGroup: 999
       containers:
       - name: postgres
         image: postgres:15-alpine
         ports:
         - containerPort: 5432
-          name: postgres
         env:
         - name: POSTGRES_USER
           value: postgres
@@ -32,4 +36,17 @@ spec:
           mountPath: /var/lib/postgresql/data
       volumes:
       - name: db-data
-        emptyDir: {}  # Ephemeral storage (data lost when pod restarts)
+        persistentVolumeClaim:
+          claimName: postgres-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: managed-premium
