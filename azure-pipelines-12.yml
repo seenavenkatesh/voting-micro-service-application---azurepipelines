@@ -17,7 +17,7 @@ variables:
   dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
   tag: '$(Build.BuildId)'
   kubernetesServiceConnection: 'aks-cluster'
-  namespace: 'default'
+  namespace: 'dev'
 
 pool:
  name: 'azurepool'
