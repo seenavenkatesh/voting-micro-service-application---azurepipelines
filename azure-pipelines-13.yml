@@ -14,8 +14,7 @@ variables:
   namespace: 'dev'
 
 pool:
-  name: 'azurepool'
-
+ name: 'azurepool'
 stages:
 - stage: DeployInfra
   displayName: Deploy Infrastructure (Postgres & Redis)
