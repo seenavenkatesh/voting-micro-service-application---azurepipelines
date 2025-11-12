@@ -5,10 +5,6 @@ trigger:
   branches:
     include:
       - main
-  paths:
-    include:
-      - 'k8s-manifest-files/postgress-*'
-      - 'k8s-manifest-files/redis-*'
 
 resources:
 - repo: self
