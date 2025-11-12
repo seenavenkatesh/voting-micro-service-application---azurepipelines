@@ -15,6 +15,7 @@ variables:
 
 pool:
  name: 'azurepool'
+
 stages:
 - stage: DeployInfra
   displayName: Deploy Infrastructure (Postgres & Redis)
