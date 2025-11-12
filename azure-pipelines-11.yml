@@ -37,8 +37,9 @@ stages:
         repository: '$(imageRepository)'
         command: 'build'
         Dockerfile: 'result/Dockerfile'
-        tags: '$(tag)'
-
+        tags: |
+          $(Build.BuildId)
+          latest
 
 - stage: Push
   displayName: push stage
