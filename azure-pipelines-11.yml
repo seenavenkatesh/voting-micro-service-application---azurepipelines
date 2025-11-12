@@ -1,0 +1,77 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+ paths:
+   include:
+     - 'result/*'
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '9a191812-1fb9-45ce-ab02-7f01159c3714'
+  imageRepository: 'result'
+  containerRegistry: 'votingapp2025.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
+  tag: '$(Build.BuildId)'
+  kubernetesServiceConnection: 'aks-cluster'
+  namespace: 'default'
+
+pool:
+ name: 'azurepool'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:
+  - job: Build
+    displayName: Build
+
+    steps:
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'build'
+        Dockerfile: 'result/Dockerfile'
+        tags: '$(tag)'
+
+
+- stage: Push
+  displayName: push stage
+  jobs:
+  - job: Push
+    displayName: Push
+
+    steps:
+    - task: Docker@2
+      displayName: push an image to container registry
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'push'
+        tags: '$(tag)'
+
+- stage: Deploy
+  displayName: Deploy to AKS
+  dependsOn: Push
+  jobs:
+  - job: Deploy
+    displayName: Deploy to AKS
+    steps:
+    - task: KubernetesManifest@1
+      displayName: Deploy to AKS
+      inputs:
+        action: 'deploy'
+        connectionType: 'kubernetesServiceConnection'
+        kubernetesServiceConnection: '$(kubernetesServiceConnection)'
+        namespace: '$(namespace)'
+        manifests:  |
+           k8s-manifest-files/result-deployment.yaml
+           k8s-manifest-files/result-service.yaml
+
+        containers: '$(containerRegistry)/$(imageRepository):$(tag)'
