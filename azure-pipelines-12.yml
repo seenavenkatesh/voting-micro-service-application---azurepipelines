@@ -11,12 +11,12 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '9621c09b-d2f0-4db2-a8c8-a3e09e657585'
-  imageRepository: 'result'
+  dockerRegistryServiceConnection: 'ebe9677f-e64e-4fa7-87ca-ea63a3ddd1c9'
+  imageRepository: 'vote'
   containerRegistry: 'votingapp2025.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/result/Dockerfile'
   tag: '$(Build.BuildId)'
-  kubernetesServiceConnection: 'aks-cluster'
+  kubernetesServiceConnection: 'kubernetes-connection'
   namespace: 'dev'
 
 pool:
