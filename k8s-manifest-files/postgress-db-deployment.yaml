@@ -14,27 +14,24 @@ spec:
       labels:
         app: db
     spec:
-      serviceAccountName: default
       securityContext:
-        runAsUser: 999
-        runAsGroup: 999
-        fsGroup: 999
+        fsGroup: 999   # allows postgres user to access mounted volume
       containers:
       - name: postgres
         image: postgres:15-alpine
-        ports:
-        - containerPort: 5432
         env:
         - name: POSTGRES_USER
           value: postgres
         - name: POSTGRES_PASSWORD
           value: postgres
-        - name: POSTGRES_DB
-          value: mydb
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata   # tells postgres to use a subdirectory
+        ports:
+        - containerPort: 5432
+          name: postgres
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/postgresql/data
       volumes:
       - name: db-data
-        persistentVolumeClaim:
-          claimName: postgres-pvc
+        emptyDir: {}   # or use your existing PVC if needed
