@@ -57,7 +57,7 @@ stages:
         tags: '$(tag)'
 
     - script: |
-        sed -i "s|votereg6360.azurecr.io/worker:.*|votereg6360.azurecr.io/worker:$(Build.BuildId)|g" k8s-manifest-files/worker-deployment.yaml
+        sed -i "s|votingapp2025.azurecr.io/worker:.*|votingapp2025.azurecr.io/worker:$(Build.BuildId)|g" k8s-manifest-files/worker-deployment.yaml
       displayName: Update image tag in YAML
 
 - stage: Deploy
