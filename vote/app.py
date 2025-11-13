@@ -6,8 +6,8 @@ import random
 import json
 import logging
 
-option_a = os.getenv('OPTION_A', "Aws")
-option_b = os.getenv('OPTION_B', "Azure")
+option_a = os.getenv('OPTION_A', "Azure")
+option_b = os.getenv('OPTION_B', "Aws")
 hostname = socket.gethostname()
 
 app = Flask(__name__)
