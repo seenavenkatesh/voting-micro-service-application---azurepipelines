@@ -38,4 +38,3 @@ spec:
       - name: db-data
         persistentVolumeClaim:
           claimName: postgres-pvc
----
