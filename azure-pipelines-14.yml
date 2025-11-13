@@ -35,5 +35,6 @@ stages:
           k8s-manifest-files/postgres-pvc.yaml
           k8s-manifest-files/postgress-db-deployment.yaml
           k8s-manifest-files/postgress-db.service.yaml
+          k8s-manifest-files/redis-pvc.yaml
           k8s-manifest-files/redis-deployment.yaml
           k8s-manifest-files/redis-service.yaml
