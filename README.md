@@ -1,6 +1,6 @@
 # 🗳️ voting-micro-service-application---azurepipelines
 
-![Home Page](./screenshots/Screenshot 2025-11-14 192824.png)
+![Home Page](./screenshots/devops_theme.png)
 
 
  
@@ -62,7 +62,7 @@ It is designed to demonstrate:
 ## 📸 Application Screenshots
 
 ### 🏠Voting Page
-![Home Page](./screenshots/voting page.png)
+![Home Page](./screenshots/voting_page.png)
 
 ### 🔐 Result Page
 ![Login Page](./screenshots/result-page.png)
@@ -78,20 +78,21 @@ It is designed to demonstrate:
 ![Pods Running](./screenshots/dep.png)
 
 ### ✅ Pods Running in AKS
-![Pods Running](./screenshots/pods in aks.png)
+![Pods Running](./screenshots/pods_aks.png)
 
 ### ✅ Pods Running in AKS terminal
-![Pods Running](./screenshots/pods and deployments in cluster.png)
+![Pods Running](./screenshots/pods_cluster.png)
 
 ### ✅ configured self-hosted runner for CICD pipeline
 ![Pods Running](./screenshots/self_hosted_runner.png)
 
 ### ✅ personal-hosted agent listening for jobs
-![Pods Running](./screenshots/jobs lis.png)
+![Pods Running](./screenshots/jobs_lis.png)
 
 
 ### 🌐 Service
-![Service](./screenshots/services.png)
+![Service](./screenshots/serv.png)
+
 
 
 
