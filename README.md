@@ -70,7 +70,7 @@ It is designed to demonstrate:
 ![CI/CD Pipeline](./screenshots/worker_pipeline_runs.png)
 
 ### ✅ Deployments  loads in AKS
-![Pods Running](./screenshots/deployments.png)
+![Pods Running](./screenshots/dep.png)
 
 ### ✅ Pods Running in AKS
 ![Pods Running](./screenshots/pods.png)
@@ -81,12 +81,13 @@ It is designed to demonstrate:
 ### ✅ configured self-hosted runner for CICD pipeline
 ![Pods Running](./screenshots/self_hosted_runner.png)
 
-### ✅ personal-hosted runner listening for jobs
+### ✅ personal-hosted agent listening for jobs
 ![Pods Running](./screenshots/runner.png)
 
 
 ### 🌐 Service & Ingress
 ![Service](./screenshots/services.png)
+
 
 
 
