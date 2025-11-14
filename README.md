@@ -1,4 +1,9 @@
-# 🗳️ Voting-Application  
+# 🗳️ voting-micro-service-application---azurepipelines
+
+![Home Page](./screenshots/Screenshot 2025-11-14 192824.png)
+
+
+ 
 **Microservices Voting System** | CI/CD with Azure DevOps → Azure Container Registry → Azure Kubernetes Service  
 
 [![Azure DevOps](https://img.shields.io/badge/AzureDevOps-CI%2FCD-blue?logo=azuredevops)](#)  
@@ -20,26 +25,26 @@ It is designed to demonstrate:
 
 ## 🏗 Architecture & Service Breakdown  
 ### Services  
-- **Vote Service** – The UI or API endpoint where votes are cast  
+- **Vote Service** – The UI where votes are cast  
 - **Result Service** – Aggregates and displays voting outcomes  
 - **worker Service** – fetch data from redis store in pstgres data base
 - **PostgreSQL** – Persistent datastore for votes & users  
-- **Redis** – Optional caching / speed layer  
+- **Redis** – Optional caching
 
 ### Workflow  
 1. Developer commits code → triggers pipeline  
 2. Build stage: compile/build microservices → produce Docker images  
 3. Push stage: Docker images pushed to ACR with tags  
 4. Deploy stage: Kubernetes manifests applied to AKS cluster  
-5. External endpoint exposed via LoadBalancer / Ingress → users interact  
+5. External endpoint exposed via LoadBalancer 
 
 ---
 
 ## 🧰 Tech Stack  
 | Layer        | Technology                |
 |------------- |---------------------------|
-| Front-end/API | Node.js / Express (Vote)  |
-| Back-end     | Python or Java (Result/Auth) |
+| Front-end/API | Node.js  (Vote)  |
+| Back-end     | Python or Java (Result) |
 | Data Store   | PostgreSQL 15             |
 | Cache        | Redis                     |
 | Container    | Docker                    |
@@ -57,10 +62,10 @@ It is designed to demonstrate:
 ## 📸 Application Screenshots
 
 ### 🏠Voting Page
-![Home Page](./screenshots/app_home.png)
+![Home Page](./screenshots/voting page.png)
 
 ### 🔐 Result Page
-![Login Page](./screenshots/app_registration.png)
+![Login Page](./screenshots/result-page.png)
 
 ### 🚀 CI/CD Pipelines Success
 ![CI/CD Pipeline](./screenshots/result_pipeline_runs.png)
@@ -73,20 +78,21 @@ It is designed to demonstrate:
 ![Pods Running](./screenshots/dep.png)
 
 ### ✅ Pods Running in AKS
-![Pods Running](./screenshots/pods.png)
+![Pods Running](./screenshots/pods in aks.png)
 
 ### ✅ Pods Running in AKS terminal
-![Pods Running](./screenshots/cluster-page.png)
+![Pods Running](./screenshots/pods and deployments in cluster.png)
 
 ### ✅ configured self-hosted runner for CICD pipeline
 ![Pods Running](./screenshots/self_hosted_runner.png)
 
 ### ✅ personal-hosted agent listening for jobs
-![Pods Running](./screenshots/runner.png)
+![Pods Running](./screenshots/jobs lis.png)
 
 
-### 🌐 Service & Ingress
+### 🌐 Service
 ![Service](./screenshots/services.png)
+
 
 
 
