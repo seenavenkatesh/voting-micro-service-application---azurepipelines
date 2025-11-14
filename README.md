@@ -67,12 +67,23 @@ It is designed to demonstrate:
 ### 🔐 Result Page
 ![Login Page](./screenshots/result-page.png)
 
+### 🔐 azure-devops-repo Page
+![Login Page](./screenshots/repo-page.pnG)
+
+
+### 🔐 CI/CD Pipelines
+![Login Page](./screenshots/all-pipelines.png)
+
+
 ### 🚀 CI/CD Pipelines Success
 ![CI/CD Pipeline](./screenshots/result_pipeline_runs.png)
 
 ![CI/CD Pipeline](./screenshots/vote_pipeline_runs.png)
 
 ![CI/CD Pipeline](./screenshots/worker_pipeline_runs.png)
+
+### ✅ repos-AZURE-CONTAINER-REGISTRY
+![Pods Running](./screenshots/acr_repository.png)
 
 ### ✅ Deployments  loads in AKS
 ![Pods Running](./screenshots/dep.png)
@@ -92,6 +103,7 @@ It is designed to demonstrate:
 
 ### 🌐 Services
 ![Service](./screenshots/serv.png)
+
 
 
 
