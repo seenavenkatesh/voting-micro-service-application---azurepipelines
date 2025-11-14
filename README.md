@@ -50,3 +50,32 @@ It is designed to demonstrate:
 ---
 
 ## 📂 Repository Structure  
+
+voting-application/
+│
+├── vote/           # voteapp microservice
+│   ├── Dockerfile
+│   └── src/...
+│
+├── result/         # resultapp microservice
+│   ├── Dockerfile
+│   └── src/...
+│
+├── worker/         # worker microservice (replaces auth)
+│   ├── Dockerfile
+│   └── app/...
+│
+├── manifests/      # Kubernetes YAML files
+│   ├── voteapp/
+│   ├── resultapp/
+│   ├── worker/
+│   ├── redis.yaml
+│   ├── postgres.yaml
+│   └── ingress.yaml
+│
+├── pipeline/       # Azure DevOps YAML pipeline
+│   └── azure-pipeline.yml
+│
+└── README.md
+
+
