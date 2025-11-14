@@ -8,7 +8,6 @@
 
 [![Azure DevOps](https://img.shields.io/badge/AzureDevOps-CI%2FCD-blue?logo=azuredevops)](#)  
 [![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)](#)  
-[![azure](https://img.shields.io/badge/azure-container-registry-blue?logo=docker)](#)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-AKS-%23326ce5?logo=kubernetes)](#)  
 
 ---
