@@ -90,8 +90,9 @@ It is designed to demonstrate:
 ![Pods Running](./screenshots/jobs_lis.png)
 
 
-### 🌐 Service
+### 🌐 Services
 ![Service](./screenshots/serv.png)
+
 
 
 
