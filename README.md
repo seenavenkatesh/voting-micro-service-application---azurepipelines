@@ -84,7 +84,7 @@ It is designed to demonstrate:
 ![Pods Running](./screenshots/pods_cluster.png)
 
 ### ✅ configured self-hosted runner for CICD pipeline
-![Pods Running](./screenshots/self_hosted_runner.png)
+![Pods Running](./screenshots/azure_agent.png)
 
 ### ✅ personal-hosted agent listening for jobs
 ![Pods Running](./screenshots/jobs_lis.png)
@@ -92,6 +92,7 @@ It is designed to demonstrate:
 
 ### 🌐 Service
 ![Service](./screenshots/serv.png)
+
 
 
 
