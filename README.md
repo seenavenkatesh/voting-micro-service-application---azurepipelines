@@ -68,7 +68,7 @@ It is designed to demonstrate:
 ![Login Page](./screenshots/result-page.png)
 
 ### 🔐 azure-devops-repo Page
-![Login Page](./screenshots/repo-page.pnG)
+![Login Page](./screenshots/repo-page.png)
 
 
 ### 🔐 CI/CD Pipelines
@@ -103,6 +103,7 @@ It is designed to demonstrate:
 
 ### 🌐 Services
 ![Service](./screenshots/serv.png)
+
 
 
 
