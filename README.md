@@ -22,7 +22,7 @@ It is designed to demonstrate:
 ### Services  
 - **Vote Service** – The UI or API endpoint where votes are cast  
 - **Result Service** – Aggregates and displays voting outcomes  
-- **Auth Service** – Handles authentication/authorization for users  
+- **worker Service** – fetch data from redis store in pstgres data base
 - **PostgreSQL** – Persistent datastore for votes & users  
 - **Redis** – Optional caching / speed layer  
 
@@ -52,5 +52,42 @@ It is designed to demonstrate:
 ## 📂 Repository Structure 
 
 ![Pods Running](./screenshots/structure.png)
+
+
+## 📸 Application Screenshots
+
+### 🏠Voting Page
+![Home Page](./screenshots/app_home.png)
+
+### 🔐 Result Page
+![Login Page](./screenshots/app_registration.png)
+
+### 🚀 CI/CD Pipelines Success
+![CI/CD Pipeline](./screenshots/result_pipeline_runs.png)
+
+![CI/CD Pipeline](./screenshots/vote_pipeline_runs.png)
+
+![CI/CD Pipeline](./screenshots/worker_pipeline_runs.png)
+
+### ✅ Deployments  loads in AKS
+![Pods Running](./screenshots/deployments.png)
+
+### ✅ Pods Running in AKS
+![Pods Running](./screenshots/pods.png)
+
+### ✅ Pods Running in AKS terminal
+![Pods Running](./screenshots/cluster-page.png)
+
+### ✅ configured self-hosted runner for CICD pipeline
+![Pods Running](./screenshots/self_hosted_runner.png)
+
+### ✅ personal-hosted runner listening for jobs
+![Pods Running](./screenshots/runner.png)
+
+
+### 🌐 Service & Ingress
+![Service](./screenshots/services.png)
+
+
 
 
